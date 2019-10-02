@@ -19,11 +19,9 @@ function uppercaseLetters(str){
 
 //3.Найти положение слова ‘string’ в строке
 
-function findThePositionWords(str){
+function findThePositionWords(str, char){
   let positionIndex = [];
-  let char = 'string';
   let searchElement = str.indexOf(char);
-
   while (searchElement !== -1){
     positionIndex.push(searchElement);
     searchElement = str.indexOf(char, searchElement + 1);
@@ -95,14 +93,15 @@ function roundOffTheRandomNumber(roundNumber) {
 //b.Получить случайное целое число от 0 до X. X - любое произвольное число.
 
 function randomNumber(roundNumber) {
-  return Math.random() * roundNumber;
+  let number = Math.random() * roundNumber;
+  return number.toFixed();
 }
 
 //4. Проверить результат вычисления 0.6 + 0.7 - как привести к нормальному виду (1.3)?
 
-function sumTwoFloatNumber(number1,number2, roundNumber) {
-  let sum = number1 + number2;
-  return parseFloat(sum.toFixed(roundNumber));
+function sumTwoFloatNumber(number1,number2) {
+  let sum = (number1*10 + number2*10)/10;
+  return sum;
 }
 
 //5. Получить число из строки ‘100$’
@@ -154,10 +153,10 @@ function redefinition(char) {
 function appropriation(value){
   if(value === 0){
     value = 1;
-  } else if (value< 0){
+  } else if (value < 0){
     value = 'less then zero';
   } else {
-    value*=10;
+    value *= 10;
   }
   return value;
 }
@@ -166,21 +165,20 @@ function appropriation(value){
 // Написать условие если возраст машины больше 5 лет то нужно вывести в консоль сообщение 'Need Repair'
 // и свойство needRepair в объекте car изменить на true; иначе изменить на false.
 
-function ageCar(value) {
-  let car = {
-    name: 'Lexus',
-    age: value,
-    create: 2008,
-    needRepair: false
-  };
-  if (car.age > 5) {
-    console.log('Need Repair');
-    car.needRepair = true;
-  } else {
-    car.needRepair = false;
-  }
-  return car;
+let car = {
+  name: 'Lexus',
+  age:11,
+  create: 2008,
+  needRepair: false
+};
+const calculateCarTechService = (carObject) => {
+  const { age } = carObject;
+  const needRepair = age > 5;
+  console.log(needRepair && "Need Repair");
+  return { ...carObject, needRepair}
 }
+car = calculateCarTechService(car);
+console.log(car);
 
 //4. Дан объект let item = { name: 'Intel core i7', price: '100$', discount: '15%' }.
 // Написать условие если у item есть поле discount и там есть значение то в объекте item
