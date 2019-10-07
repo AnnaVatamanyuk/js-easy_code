@@ -27,10 +27,17 @@ item.details = {model : '', color : ''};
 
 const a = 'block';
 switch (a) {
-    case 'block' : console.log('block'); break;
-    case  'none': console.log('none'); break;
-    case 'inline' : console.log('inline');break;
-    default : console.log('other');
+    case 'block' :
+        console.log('block');
+        break;
+    case  'none':
+        console.log('none');
+        break;
+    case 'inline' :
+        console.log('inline');
+        break;
+    default :
+        console.log('other');
 }
 
 // 2. Из задач по условному оператору if else выполнить задачи 1, 2 и 3 в виде тернарного оператора.
