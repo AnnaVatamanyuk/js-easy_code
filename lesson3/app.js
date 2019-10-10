@@ -18,11 +18,7 @@ function multiply() {
 // 2. Создать функцию, которая принимает строку и возвращает строку-перевертыш: reverseString(‘test’) // “tset”.
 
 function reverseString(text) {
-    let newText = '';
-
-    for (let j = text.length-1; j >= 0; j--){
-        newText += text[j];
-    }
+    let newText = text.split('').reverse().join('');
     return newText;
 }
 
@@ -31,15 +27,8 @@ function reverseString(text) {
 // getCodeStringFromText(‘hello’) // “104 101 108 108 111”
 
 function getCodeStringFromText(str) {
-    let newStr = '';
-    for (let i = 0; i < str.length; i++){
-        if (str[i] !== ' '){
-            newStr += str.charCodeAt(i) + ' ';
-        } else {
-            newStr += str[i];
-        }
-    }
-    return newStr.trim();
+    let newStr = str.split('').map(char => char.charCodeAt(0)).join(' ');
+    return newStr;
 }
 
 // 4. Создать функцию угадай число. Она принимает число от 1-10 (обязательно проверить что число не больше 10 и не меньше 0). 
@@ -139,15 +128,11 @@ function countElements(numberArray) {
 
 function informationNumber(numberArray) {
     let newArray = [];
-    for (let i = 0; i < numberArray.length; i++){        if (numberArray[i] % 2 !== 0){
-            newArray[i] = new Object();
-            newArray[i].digital = numberArray[i];
-            newArray[i].odd = true;
-        } else {
-            newArray[i] = new Object();
-            newArray[i].digital = numberArray[i];
-            newArray[i].odd = false;
-        }
+    for (let i = 0; i < numberArray.length; i++){
+        newArray.push({
+            digit: numberArray[i],
+            odd: !!(numberArray[i] % 2)
+        })
     }
     return newArray;
 }
