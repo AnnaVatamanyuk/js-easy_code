@@ -111,9 +111,9 @@ function priceProduct(product, minPrice, maxPrice) {
 
 function myEvery(arr, fn) {
     let res;
-    if(typeof arr === 'object' && typeof fn === 'function'){
+    if(Array.isArray(arr) && typeof fn === 'function'){
         for (let i=0; i < arr.length; i++){
-            if (fn(arr[i]) === true){
+            if (fn(arr[i])){
                 res = true;
             }else {
                 res = false;break
