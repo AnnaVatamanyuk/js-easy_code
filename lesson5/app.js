@@ -64,10 +64,17 @@ const numerator = {
 
 
 function Calculator() {
-    let value = prompt('Введите два числа, розделены пробелом:');
-    this.read = value.split(' ');
-    this.sum = function (){return Number(this.read[0]) + Number(this.read[1]);};
-    this.mul = function (){return Number(this.read[0]) * Number(this.read[1]);};
+    this.read = function () {
+        let value = prompt('Введите два числа, розделены пробелом:');
+        this.values = value.split(' ');
+        return this.values;
+    };
+    this.sum = function (){return Number(this.values[0]) + Number(this.values[1]);};
+    this.mul = function (){return Number(this.values[0]) * Number(this.values[1]);};
 }
 
 let calculator = new Calculator();
+
+console.log(calculator.read());
+console.log(calculator.sum());
+console.log(calculator.mul());
