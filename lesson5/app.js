@@ -75,6 +75,3 @@ function Calculator() {
 
 let calculator = new Calculator();
 
-console.log(calculator.read());
-console.log(calculator.sum());
-console.log(calculator.mul());
