@@ -63,10 +63,11 @@ const numerator = {
 // console.log( "Mul=" + calculator.mul() );
 
 
-function Calculator(value1, value2) {
-    this.read = [value1,value2];
-    this.sum = value1 + value2;
-    this.mul = value1 * value2;
+function Calculator() {
+    let value = prompt('Введите два числа, розделены пробелом:');
+    this.read = value.split(' ');
+    this.sum = function (){return Number(this.read[0]) + Number(this.read[1]);};
+    this.mul = function (){return Number(this.read[0]) * Number(this.read[1]);};
 }
 
-let calculator = new Calculator(2, 3);
+let calculator = new Calculator();
