@@ -83,54 +83,43 @@ let infoStr = (function () {
 // Конечное значение округлить до двух знаков после точки (значение должно храниться в обычной переменной, не в this).
 
 const calculator = (function () {
-    //let sum, multiply, division, minus, degree;
-    let value = [], sum = 0, multiply = 1, minus, division;
+    let value;
 
-    function setNumbers(numbers){
-        value = numbers;
+    function setNumbers(number){
+        value = number;
     }
 
     function getNumber() {
         return value;
     }
 
-    function sumTwoNumbers() {
-        let str, strNumbers, countNumbers = 0;
-        value.forEach(function (number, value) {
-            str = number.toString();
-            strNumbers = str.split('.');
-            if (strNumbers[1].length > countNumbers){
-                countNumbers = strNumbers[1].length;
+    function sumTwoNumbers(sumNumber) {
+        let countNumbers, sum = 0;
+         let strValue = value.toString(), strSum = sumNumber.toString();
+         let strNumbersValue = strValue.split('.'), strNumbersSum = strSum.split('.');
+            if (strNumbersValue[1].length > strNumbersSum[1].length){
+                countNumbers = strNumbersValue[1].length;
+            } else {
+                countNumbers = strNumbersSum[1].length
             }
-        });
-        for (let i=0; i <value.length; i++){
-            sum += value[i]*Math.pow(10, countNumbers);
-        }
-        sum = sum/Math.pow(10, countNumbers);
-        return Number(sum.toFixed(2));
+            sum = value * Math.pow(10, countNumbers) + sumNumber * Math.pow(10, countNumbers);
+            value = sum / Math.pow(10, countNumbers);
+        return Number(value.toFixed(2));
     }
 
-    function multiplyTwoNumber() {
-        for (let i=0; i <value.length; i++){
-            multiply *= value[i];
-        }
-        return Number(multiply.toFixed(2));
+    function multiplyTwoNumber(valueMultiply) {
+            value *=valueMultiply;
+        return Number(value.toFixed(2));
     }
 
-    function minusTwoNumber() {
-        minus = value[0];
-        for (let i=1; i <value.length; i++){
-            minus -= value[i];
-        }
-        return Number(minus.toFixed(2));
+    function minusTwoNumber(minus) {
+        value -= minus;
+        return Number(value.toFixed(2));
     }
 
-    function divisionTwoNumber() {
-        division = value[0];
-        for (let i=1; i <value.length; i++){
-            division /= value[i];
-        }
-        return Number(division.toFixed(2));
+    function divisionTwoNumber(division) {
+        value /= division;
+        return Number(value.toFixed(2));
     }
     return{
         setNumber: setNumbers,
