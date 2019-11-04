@@ -16,7 +16,7 @@ const ARRAY_FIELDS = [
         name: 'url',
         label: 'Картинка',
         type: 'file',
-        validation: {pattern: /^https:/, message: '(Введите ссылку на изображение)'}
+        validation: {pattern: /^http(?:s)|:/, message: '(Введите ссылку на изображение)'}
     },
     {
         name: 'rate',
