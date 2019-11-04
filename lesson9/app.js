@@ -49,17 +49,10 @@ let earth = new PlanetWithSatellite('earth', 'moon');
 function Building(name, countOfFloors) {
     this.name = name;
     this.floors = countOfFloors;
-    this.setFloors = function() {
-        this.floors = countOfFloors;
-    };
-
-    this.getFloors = function() {
-        return this.floors;
-    }
 }
 
 function House(name, countOfFloors, countOfFlats) {
-    Building.call(this, name, countOfFloors);
+   Building.call(this, name, countOfFloors);
 
     this.countOfFlats = countOfFlats;
 
@@ -72,7 +65,7 @@ function House(name, countOfFloors, countOfFlats) {
 }
 
 function ShoppingCenter(name, countOfFloors, countOfShop){
-    Building.call(this,name);
+   Building.call(this,name, countOfFloors);
     this.countOfShop = countOfShop;
 
     this.getFloors = function () {
