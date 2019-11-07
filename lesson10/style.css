@@ -1,0 +1,59 @@
+#book-list{
+
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid gray;
+    height: 100%;
+    width: 800px;
+}
+#book-form {
+    display: flex;
+}
+
+.book-print, #book-form{
+    font-size: 16px;
+    font-family: 'Liberation Serif' , sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+#book-btn {
+    padding: 30px;
+    flex-direction: column;
+    width: 50%;
+}
+
+#book-btn button,
+#book-btn select{
+    margin-bottom: 10px;
+    width: 250px;
+    background-color: #97d4d1;
+    border-radius: 2px;
+    outline: none;
+}
+
+#book-btn button{
+    height: 50px;
+}
+
+.label {
+    display: block;
+    margin: 2% 1%;
+    width: 290px;
+}
+.label input{
+    outline: none;
+    width: 270px;
+}
+.label select{
+    width: 270px;
+    outline: none;
+}
+.error-message{
+    color: #990000;
+    font-size: 10px;
+    font-style: italic;
+}
+.book-print{
+
+}
