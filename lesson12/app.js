@@ -13,20 +13,17 @@ class Service {
         this.search = '';
         this.sort = '';
     }
-    sendRequest({country = '', category = '' }) {
+
+    sendRequest({country = '', category = '', search = '', sort = ''}) {
+        let link ='';
         if (country !== '') {
             this.country = country;
         }
+
         if (category !== '') {
             this.category = category;
         }
 
-         return fetch(`https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=${this.key}`)
-            .then((response) => { return response.json()})
-            .catch((err) => { console.error('Моя ошибка - ', err) });
-    }
-
-    sendRequestSearch({search = '', sort = ''}){
         if(search !== ''){
             this.search = search;
         }
@@ -35,7 +32,12 @@ class Service {
             this.sort = sort;
         }
 
-        return fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(this.search)}&sortBy=${this.sort}&apiKey=${this.key}`)
+        if (this.search || this.sort) {
+            link = `https://newsapi.org/v2/everything?q=${encodeURIComponent(this.search)}&sortBy=${this.sort}&apiKey=${this.key}`;
+        }else if (this.country || this.category){
+             link = `https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=${this.key}`;
+         }
+        return fetch(link)
             .then((response) => { return response.json()})
             .catch((err) => { console.error('Моя ошибка - ', err) });
     }
@@ -54,23 +56,15 @@ class UI {
 
         country.addEventListener('change', this.handleSelect.bind(this));
         category.addEventListener('change', this.handleSelect.bind(this));
-        search.addEventListener('input', this.handleSearch.bind(this));
-        sort.addEventListener('change', this.handleSearch.bind(this));
+        search.addEventListener('input', this.handleSelect.bind(this));
+        sort.addEventListener('change', this.handleSelect.bind(this));
     }
     handleSelect(event) {
-        const {id: selectName, value: selectValue} = event.target;
-        this.service.sendRequest({[selectName]: selectValue})
+        const {id: name, value: value} = event.target;
+        this.service.sendRequest({[name]: value})
             .then((response) => {
                 this.layout.renderAll(response.articles);
             })
-    }
-
-    handleSearch(event){
-       const {id: name, value: value} = event.target;
-        this.service.sendRequestSearch({[name]:value})
-            .then((response) => {
-                this.layout.renderAll(response.articles)
-        })
     }
 }
 
