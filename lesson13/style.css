@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding: 30px;
+    margin: 0 auto;
+    border: 2px solid #3c43a3;
+    font-size: 16px;
+    font-style: italic;
+}
+select, textarea, button{
+    outline: none;
+}
+
+h1{
+    color: #92bffa;
+}
+
+button{
+    margin: 5px 0;
+    width: 230px;
+    height: 30px;
+}
+
+button, select{
+    font-style: italic;
+
+}
+
+textarea{
+    width: 230px;
+    height: 50px;
+}
