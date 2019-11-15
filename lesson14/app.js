@@ -115,16 +115,15 @@ btnTable.addEventListener('click', function () {
     tableRes.style.display = 'block';
     let tr = '';
     let list = JSON .parse(localStorage.getItem('usersList'))|| [];
-    console.log(list);
-    list.forEach((user) =>{
+    for (let i = list.length - 1; i >= list.length - 10; i --){
         tr =`<tr>
-                <td>${user.name}</td>
-                <td>${user.level}</td>
-                <td>${user.countClick}</td>
-                <td>${user.countMoles}</td>
+                <td>${list[i].name}</td>
+                <td>${list[i].level}</td>
+                <td>${list[i].countClick}</td>
+                <td>${list[i].countMoles}</td>
             </tr>`;
         tableBody.insertAdjacentHTML('beforeend', tr);
-    })
+    }
 });
 
 localStorage.getItem('user');
