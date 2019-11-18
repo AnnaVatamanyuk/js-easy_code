@@ -61,11 +61,10 @@ h1{
     margin: 0 auto;
 }
 .finish, .table-res{
-    position: fixed !important;
+    position: absolute;
     height: auto;
-    width: 730px;
     top: 100px;
-    left: 550px;
+    left: 25%;
     display: none;
     z-index: 5;
 }
