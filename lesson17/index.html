@@ -32,28 +32,34 @@
             </table>
         </div>
     </section>
-    <div class="finish table-res">
-        <div class="finish-result">
+    <div class="create create-invoice">
+        <div class="create-form">
             <div class="container-title">
-                <h1>Invoice</h1>
+                <h1>Create Invoice</h1>
                 <div class="line"></div>
             </div>
-            <div>
-                <label>
-                    <input type="text" class="number">
-                </label>
-                <label>
-                    <input type="date" name="invoice-date">
-                </label>
-                <label>
-                    <input type="date" name="supply-date">
-                </label>
-                <label>
-                    <input type="text" name="comment">
-                </label>
+            <div class="invoice-form">
+                <form>
+                    <label>
+                        <span>Number:</span>
+                        <input type="text" class="number">
+                    </label>
+                    <label>
+                        <span>Invoice Date:</span>
+                        <input type="date" name="invoice-date" class="invoice-date" placeholder="Select date">
+                    </label>
+                    <label>
+                        <span>Supply Date:</span>
+                        <input type="date" name="supply-date" class="supply-date" placeholder="Select date">
+                    </label>
+                    <label>
+                        <span>Comment:</span>
+                        <input type="text" name="comment" class="comment">
+                    </label>
+                </form>
+                <button class="save-btn btn">save</button>
             </div>
-            <button class="save-btn">save</button>
-            <button class="close-table"><span class="btn-icon"></span></button>
+            <button class="close-form"><span class="btn-icon"></span></button>
         </div>
     </div>
 </div>
