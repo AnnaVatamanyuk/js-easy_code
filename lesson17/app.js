@@ -32,3 +32,8 @@ class Invoices {
         this.wrapper.insertAdjacentHTML('beforeend', html);
     }
 }
+
+const addBtn = document.querySelector('.btn');
+addBtn.addEventListener('click', function () {
+
+});
