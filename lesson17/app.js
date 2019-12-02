@@ -35,5 +35,6 @@ class Invoices {
 
 const addBtn = document.querySelector('.btn');
 addBtn.addEventListener('click', function () {
-
+    const creatForm = document.querySelector('.finish');
+    creatForm.style.display = 'block';
 });
