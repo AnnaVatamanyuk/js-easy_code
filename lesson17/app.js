@@ -34,7 +34,25 @@ class Invoices {
 }
 
 const addBtn = document.querySelector('.btn');
+const creatForm = document.querySelector('.finish');
 addBtn.addEventListener('click', function () {
-    const creatForm = document.querySelector('.finish');
     creatForm.style.display = 'block';
+});
+
+const saveBtn = document.querySelector('.save-btn');
+
+saveBtn.addEventListener('click', function () {
+    const inputNumber = document.querySelector('.number');
+    const inputInvoiceDate = document.querySelector('[name="invoice-date"]');
+    const inputSupplyDate = document.querySelector('[name="supply-date"]');
+    const inputComment = document.querySelector('[name="comment"]');
+    const tbody = document.querySelector('tbody');
+    let table = `<tr>
+                <td>${inputNumber.value}</td>
+                <td>${inputInvoiceDate.value}</td>
+                <td>${inputSupplyDate.value}</td>
+                <td>${inputComment.value}</td>
+            </tr>`;
+    tbody.insertAdjacentHTML('beforeend', table);
+    creatForm.style.display = 'none';
 });
