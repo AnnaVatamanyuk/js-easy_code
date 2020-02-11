@@ -32,3 +32,43 @@ class Invoices {
         this.wrapper.insertAdjacentHTML('beforeend', html);
     }
 }
+
+const addBtn = document.querySelector('.btn');
+const creatForm = document.querySelector('.create');
+const closeForm = document.querySelector('.close-form');
+
+closeForm.addEventListener('click', function () {
+    creatForm.style.display = 'none';
+});
+
+addBtn.addEventListener('click', function () {
+    creatForm.style.display = 'block';
+});
+
+const saveBtn = document.querySelector('.save-btn');
+
+saveBtn.addEventListener('click', function () {
+    const inputNumber = document.querySelector('.number');
+    const inputInvoiceDate = document.querySelector('[name="invoice-date"]');
+    const inputSupplyDate = document.querySelector('[name="supply-date"]');
+    const inputComment = document.querySelector('[name="comment"]');
+    const tbody = document.querySelector('tbody');
+    const form = document.querySelector('form');
+    if (inputNumber.value === ''){
+        alert('enter the correct number invoice');
+    } else if (inputInvoiceDate.value === ''){
+        alert('enter the correct invoice date');
+    } else if (inputSupplyDate.value === ''){
+        alert('enter the correct supply date');
+    } else {
+        let table = `<tr>
+                <td>${inputInvoiceDate.value}</td>
+                <td>${inputNumber.value}</td>
+                <td>${inputSupplyDate.value}</td>
+                <td>${inputComment.value}</td>
+            </tr>`;
+        tbody.insertAdjacentHTML('beforeend', table);
+        creatForm.style.display = 'none';
+        form.reset();
+    }
+});

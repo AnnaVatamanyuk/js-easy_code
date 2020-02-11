@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" integrity="sha384-wxqG4glGB3nlqX0bi23nmgwCSjWIW13BdLUEYC4VIMehfbcro/ATkyDsF/AbIOVe" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>JSON Server</title>
 </head>
@@ -31,6 +32,36 @@
             </table>
         </div>
     </section>
+    <div class="create create-invoice">
+        <div class="create-form">
+            <div class="container-title">
+                <h1>Create Invoice</h1>
+                <div class="line"></div>
+            </div>
+            <div class="invoice-form">
+                <form>
+                    <label>
+                        <span>Number:</span>
+                        <input type="text" class="number">
+                    </label>
+                    <label>
+                        <span>Invoice Date:</span>
+                        <input type="date" name="invoice-date" class="invoice-date" placeholder="Select date">
+                    </label>
+                    <label>
+                        <span>Supply Date:</span>
+                        <input type="date" name="supply-date" class="supply-date" placeholder="Select date">
+                    </label>
+                    <label>
+                        <span>Comment:</span>
+                        <input type="text" name="comment" class="comment">
+                    </label>
+                </form>
+                <button class="save-btn btn">save</button>
+            </div>
+            <button class="close-form"><span class="btn-icon"></span></button>
+        </div>
+    </div>
 </div>
 <script src="app.js"></script>
 </body>

@@ -75,3 +75,115 @@ tbody td{
 th{
     padding: 10px 30px;
 }
+
+
+.create{
+    background: #dbddde;
+    position: absolute;
+    height: auto;
+    top: 100px;
+    left: 200px;
+    right: 200px;
+    display: none;
+    z-index: 5;
+}
+
+.create:before,
+.create-invoice:before{
+    position: fixed;
+    content: '';
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: #cacaca;
+    opacity: .6;
+    z-index: -1;
+}
+
+.create-form{
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+    font-size: 24px;
+}
+
+.create-form h1{
+    font-size: 18px;
+}
+
+.create-form .line{
+    margin-top: 12px;
+    width: 680px;
+}
+
+.close-form{
+    font-size: 0 !important;
+    line-height: 0 !important;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 2;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-icon{
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1 !important;
+    font-size: 16px !important;
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    color: #A4A4A4;
+}
+
+.btn-icon:before{
+    content:"\f00d";
+}
+
+.invoice-form{
+    padding: 30px 30px 50px;
+    background: white;
+}
+form{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form span{
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+form input{
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    height: 30px;
+    margin: 0 10px 30px;
+    width: 350px;
+    outline: none;
+}
+
+form .comment{
+    width: 720px;
+}
+
+.save-btn{
+    float: right;
+    margin: 0 15px 15px;
+}
